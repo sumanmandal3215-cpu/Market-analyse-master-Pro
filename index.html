@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Market Analyzer - Pocket Option Special</title>
+    <style>
+        body { margin: 0; background-color: #0d1117; color: white; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+        .dashboard { display: flex; height: 100vh; flex-direction: column; }
+        .header { background: #161b22; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #30363d; }
+        .main-content { display: flex; flex: 1; }
+        .chart-container { flex: 3; position: relative; border-right: 2px solid #30363d; }
+        .sidebar { flex: 1; background: #0d1117; padding: 10px; overflow-y: auto; }
+        .status-tag { background: #238636; padding: 5px 10px; border-radius: 5px; font-size: 12px; }
+        h1 { font-size: 18px; margin: 0; color: #58a6ff; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="header">
+        <h1>🚀 Market Analyse Pro <span style="color: #8b949e; font-size: 12px;">v3.0</span></h1>
+        <div class="status-tag">Live Market Data Active</div>
+    </div>
+
+    <div class="main-content">
+        <div class="chart-container">
+            <div id="tradingview_main" style="height: 100%;"></div>
+        </div>
+
+        <div class="sidebar">
+            <h3 style="text-align: center; font-size: 14px;">Technical Summary (1m)</h3>
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                    "interval": "1m",
+                    "width": "100%",
+                    "isTransparent": true,
+                    "height": "400",
+                    "symbol": "FX:EURUSD",
+                    "showIntervalTabs": true,
+                    "displayMode": "single",
+                    "locale": "en",
+                    "colorTheme": "dark"
+                }
+                </script>
+            </div>
+            <hr style="border: 0.5px solid #30363d; margin: 20px 0;">
+            <p style="font-size: 12px; color: #8b949e; text-align: center;">
+                টিপস: যখন মিটার <b>"STRONG BUY"</b> দেখাবে এবং চার্টে গ্রিন ক্যান্ডেল তৈরি হবে, তখনই এন্ট্রি নিন।
+            </p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+    new TradingView.widget({
+        "autosize": true,
+        "symbol": "FX:EURUSD",
+        "interval": "1",
+        "timezone": "Asia/Dhaka",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "withdateranges": true,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": true,
+        "details": true,
+        "hotlist": true,
+        "calendar": true,
+        "container_id": "tradingview_main"
+    });
+</script>
+
+</body>
+</html>
